@@ -25,7 +25,7 @@ document.getElementById("btn3").addEventListener("click", () => {
 });
 
 function aggiornaDato(id) {
-  fetch("https://subi-ajng.onrender.com/update-character", {
+  fetch("http://localhost:3001/update-character", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id }),
@@ -33,7 +33,7 @@ function aggiornaDato(id) {
     .then((res) => res.json())
     .then((data) => {
       console.log("Risposta update:", data);
-      return fetch("https://subi-ajng.onrender.com/characters");
+      return fetch("http://localhost:3001/characters");
     })
     .then((res) => res.json())
     .then((data) => {
@@ -43,4 +43,9 @@ function aggiornaDato(id) {
     .catch((err) => {
       console.error("Errore dal backend:", err);
     });
+}
+
+function storia1() {
+  const audio = new Audio("audio/storia1.mp3");
+  audio.play();
 }
